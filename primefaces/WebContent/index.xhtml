@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<h:form enctype="multipart/form-data">
+		<p:growl id="messages" showDetail="true" />
+		<p:inputText value="#{uploadTest.descripcion}"></p:inputText>
+		<p:fileUpload value="#{uploadTest.file}" mode="simple"
+			skinSimple="true" />
+
+		<p:commandButton value="Submit" ajax="false"
+			actionListener="#{uploadTest.upload}" />
+
+		<p:galleria value="#{uploadTest.listNombre}" var="image"
+			panelWidth="500" panelHeight="313" showCaption="true" >
+			<p:graphicImage value="#{uploadTest.image}"
+				alt="Image Description for #{image}" title="#{image}" height="313" width="500">
+				<f:param name="image_id" value="#{image}" />
+			</p:graphicImage>
+		</p:galleria>
+		
+	</h:form>
+
+</h:body>
+</html>
